@@ -98,9 +98,9 @@ final class LinkGenerator: LinkGenerating {
         // copy phase as only running for deployment postprocessing (i.e., "Copy only when installing") and
         // disabling deployment postprocessing (it's enabled by default for release builds).
         
-        if target.product == .staticLibrary {
+        if target.product.isStatic {
             
-            let dependencies = graph.staticLibraryDependencies(path: path, name: target.name)
+            let dependencies = graph.staticDependencies(path: path, name: target.name)
             
             try generateDependenciesBuildPhase(
                 dependencies: dependencies,

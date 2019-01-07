@@ -113,6 +113,7 @@ class GraphLinter: GraphLinting {
             LintableTarget(platform: .iOS, product: .staticLibrary),
             LintableTarget(platform: .iOS, product: .dynamicLibrary),
             LintableTarget(platform: .iOS, product: .framework),
+            LintableTarget(platform: .iOS, product: .staticFramework),
 //            LintableTarget(platform: .iOS, product: .appExtension),
 //            LintableTarget(platform: .iOS, product: .messagesExtension),
 //            LintableTarget(platform: .iOS, product: .stickerPack),
@@ -121,6 +122,11 @@ class GraphLinter: GraphLinting {
         ],
         LintableTarget(platform: .iOS, product: .staticLibrary): [
             LintableTarget(platform: .iOS, product: .staticLibrary),
+            LintableTarget(platform: .iOS, product: .staticFramework),
+        ],
+        LintableTarget(platform: .iOS, product: .staticFramework): [
+            LintableTarget(platform: .iOS, product: .staticLibrary),
+            LintableTarget(platform: .iOS, product: .staticFramework),
         ],
         LintableTarget(platform: .iOS, product: .dynamicLibrary): [
             LintableTarget(platform: .iOS, product: .dynamicLibrary),
@@ -133,12 +139,14 @@ class GraphLinter: GraphLinting {
             LintableTarget(platform: .iOS, product: .staticLibrary),
             LintableTarget(platform: .iOS, product: .dynamicLibrary),
             LintableTarget(platform: .iOS, product: .framework),
+            LintableTarget(platform: .iOS, product: .staticFramework),
         ],
         LintableTarget(platform: .iOS, product: .uiTests): [
             LintableTarget(platform: .iOS, product: .app),
             LintableTarget(platform: .iOS, product: .staticLibrary),
             LintableTarget(platform: .iOS, product: .dynamicLibrary),
             LintableTarget(platform: .iOS, product: .framework),
+            LintableTarget(platform: .iOS, product: .staticFramework),
         ],
         //        LintableTarget(platform: .iOS, product: .appExtension): [
 //            LintableTarget(platform: .iOS, product: .staticLibrary),
@@ -166,10 +174,16 @@ class GraphLinter: GraphLinting {
             LintableTarget(platform: .macOS, product: .staticLibrary),
             LintableTarget(platform: .macOS, product: .dynamicLibrary),
             LintableTarget(platform: .macOS, product: .framework),
+            LintableTarget(platform: .iOS, product: .staticFramework),
 //            LintableTarget(platform: .macOS, product: .appExtension),
         ],
         LintableTarget(platform: .macOS, product: .staticLibrary): [
             LintableTarget(platform: .macOS, product: .staticLibrary),
+            LintableTarget(platform: .iOS, product: .staticFramework),
+        ],
+        LintableTarget(platform: .macOS, product: .staticFramework): [
+            LintableTarget(platform: .macOS, product: .staticLibrary),
+            LintableTarget(platform: .iOS, product: .staticFramework),
         ],
         LintableTarget(platform: .macOS, product: .dynamicLibrary): [
             LintableTarget(platform: .macOS, product: .dynamicLibrary),
@@ -182,12 +196,14 @@ class GraphLinter: GraphLinting {
             LintableTarget(platform: .macOS, product: .staticLibrary),
             LintableTarget(platform: .macOS, product: .dynamicLibrary),
             LintableTarget(platform: .macOS, product: .framework),
+            LintableTarget(platform: .iOS, product: .staticFramework),
         ],
         LintableTarget(platform: .macOS, product: .uiTests): [
             LintableTarget(platform: .macOS, product: .app),
             LintableTarget(platform: .macOS, product: .staticLibrary),
             LintableTarget(platform: .macOS, product: .dynamicLibrary),
             LintableTarget(platform: .macOS, product: .framework),
+            LintableTarget(platform: .iOS, product: .staticFramework),
         ],
         //        LintableTarget(platform: .macOS, product: .appExtension): [
 //            LintableTarget(platform: .macOS, product: .staticLibrary),
@@ -199,10 +215,16 @@ class GraphLinter: GraphLinting {
             LintableTarget(platform: .tvOS, product: .staticLibrary),
             LintableTarget(platform: .tvOS, product: .dynamicLibrary),
             LintableTarget(platform: .tvOS, product: .framework),
+            LintableTarget(platform: .iOS, product: .staticFramework),
 //            LintableTarget(platform: .tvOS, product: .tvExtension),
         ],
         LintableTarget(platform: .tvOS, product: .staticLibrary): [
             LintableTarget(platform: .tvOS, product: .staticLibrary),
+            LintableTarget(platform: .iOS, product: .staticFramework),
+        ],
+        LintableTarget(platform: .tvOS, product: .staticFramework): [
+            LintableTarget(platform: .tvOS, product: .staticLibrary),
+            LintableTarget(platform: .iOS, product: .staticFramework),
         ],
         LintableTarget(platform: .tvOS, product: .dynamicLibrary): [
             LintableTarget(platform: .tvOS, product: .dynamicLibrary),
@@ -215,6 +237,7 @@ class GraphLinter: GraphLinting {
             LintableTarget(platform: .tvOS, product: .staticLibrary),
             LintableTarget(platform: .tvOS, product: .dynamicLibrary),
             LintableTarget(platform: .tvOS, product: .framework),
+            LintableTarget(platform: .iOS, product: .staticFramework),
         ],
 //        LintableTarget(platform: .tvOS, product: .tvExtension): [
 //            LintableTarget(platform: .tvOS, product: .staticLibrary),

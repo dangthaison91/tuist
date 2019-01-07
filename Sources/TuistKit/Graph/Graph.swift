@@ -48,7 +48,7 @@ protocol Graphing: AnyObject {
     func librariesPublicHeadersFolders(path: AbsolutePath, name: String) -> [AbsolutePath]
     func embeddableFrameworks(path: AbsolutePath, name: String, system: Systeming) throws -> [DependencyReference]
     func targetDependencies(path: AbsolutePath, name: String) -> [String]
-    func staticLibraryDependencies(path: AbsolutePath, name: String) -> [DependencyReference]
+    func staticDependencies(path: AbsolutePath, name: String) -> [DependencyReference]
     
     // MARK:- Depth First Search
     
@@ -105,7 +105,7 @@ class Graph: Graphing {
             .map(\.target.name)
     }
     
-    func staticLibraryDependencies(path: AbsolutePath, name: String) -> [DependencyReference] {
+    func staticDependencies(path: AbsolutePath, name: String) -> [DependencyReference] {
         
         guard let targetNode = findTargetNode(path: path, name: name) else {
             return [ ]
@@ -134,7 +134,7 @@ class Graph: Graphing {
         references.append(contentsOf: precompiledLibrariesAndFrameworks)
         
         switch targetNode.target.product {
-        case .staticLibrary, .dynamicLibrary, .framework:
+        case .staticLibrary, .dynamicLibrary, .framework, .staticFramework:
             // Ignore the products, they do not want to directly link the static libraries, the top level bundles will be responsible.
             break
         case .app, .unitTests, .uiTests:
@@ -243,7 +243,7 @@ class Graph: Graphing {
 extension Graph {
     
     internal func isStaticLibrary(targetNode: TargetNode) -> Bool {
-        return targetNode.target.product == .staticLibrary
+        return targetNode.target.product.isStatic
     }
     
     internal func isDynamicLibrary(targetNode: TargetNode) -> Bool {
